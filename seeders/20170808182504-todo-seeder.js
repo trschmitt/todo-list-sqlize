@@ -1,7 +1,18 @@
-'use strict';
+"use strict";
 
 module.exports = {
-  up: function (queryInterface, Sequelize) {
+  up: function(queryInterface, Sequelize) {
+    return queryInterface.bulkInsert(
+      "item",
+      [
+        {
+          description: "catch up on homework",
+          complete: false,
+
+        }
+      ],
+      {}
+    );
     /*
       Add altering commands here.
       Return a promise to correctly handle asynchronicity.
@@ -14,7 +25,7 @@ module.exports = {
     */
   },
 
-  down: function (queryInterface, Sequelize) {
+  down: function(queryInterface, Sequelize) {
     /*
       Add reverting commands here.
       Return a promise to correctly handle asynchronicity.

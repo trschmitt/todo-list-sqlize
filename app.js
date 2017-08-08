@@ -11,7 +11,7 @@ models.todo.findOne().then(function (user) {
 /**************************/
 
 app.use(express.static("public"));
-app.use(require("./todoRoutes"));
+app.use(require("./routes"));
 
 app.engine("mustache", mustacheExpress());
 app.set("view engine", "mustache");
@@ -29,4 +29,19 @@ sequelize
   })
   .catch(err => {
     console.error('Unable to connect to the database:', err);
+});
+
+if (require.main === module) {
+  app.listen(app.get("port"), err => {
+    if (err) {
+      throw err;
+      exit(1);
+    }
+
+    console.log(
+      `Node running in ${app.get("env")} mode @ http://localhost:${app.get(
+        "port"
+      )}`
+    );
   });
+}

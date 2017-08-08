@@ -1,7 +1,16 @@
 {
-  "username": null,
-  "password": null,
-  "database": "todolistizerdb",
-  "host": "127.0.0.1",
-  "dialect": "postgres"
+  "development": {
+    "username": null,
+    "password": null,
+    "database": "todos_development",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "todos_test",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
 }
