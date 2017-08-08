@@ -15,16 +15,25 @@
     {{/error}}
     <form action="index.html" method="post">
       <ul id="tasks">
-        {{#todoList}}
+        {{#todo}}
           <li>
             <button type="button">Completed</button>
             {{item}}
           </li>
-        {{/todoList}}
+        {{/todo}}
       </ul>
       <ul>
-        <!-- ToDo list with all completed items -->
-        <!-- store completed todo's in another array and display here ^^^^^-->
+        {{#todo}}
+          <h2>{{description}}</h2>
+          <p>
+          {{#completed}}
+            DONE
+          {{/completed}}
+          {{^completed}}
+            NOT COMPLETED
+          {{/completed}}
+          </p>
+        {{/todo}}
       </ul>
   </form>
   </body>
