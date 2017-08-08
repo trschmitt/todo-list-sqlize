@@ -17,11 +17,6 @@ app.engine("mustache", mustacheExpress());
 app.set("view engine", "mustache");
 app.set("views", __dirname + "/views");
 
-
-app.get("/", (req, res) => {
-	res.render("index", { todoList: todoList });
-});
-
 sequelize
   .authenticate()
   .then(() => {
