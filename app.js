@@ -1,20 +1,26 @@
-const sequalize = require('sequalize');
+const sequelize = require('sequelize');
+const express = require('express');
+const app = express();
+const mustacheExpress = require('mustache-express');
 
-const item = sequelize.define('item', {
-  title: { type: Sequelize.STRING },
-  description: { type: Sequelize.STRING },
+/** sequelize model setup **/
+const models = require("./models");
+models.todo.findOne().then(function (user) {
+  console.log(todo);
+})
+/**************************/
 
+app.use(express.static("public"));
+app.use(require("./todoRoutes"));
+
+app.engine("mustache", mustacheExpress());
+app.set("view engine", "mustache");
+app.set("views", __dirname + "/views");
+
+
+app.get("/", (req, res) => {
+	res.render("index", { todoList: todoList });
 });
-
-// force: true will drop the table if it already exists
-User.sync({force: true}).then(() => {
-  // Table created
-  return User.create({
-    title: 'John',
-    lastName: 'Hancock'
-  });
-});
-
 
 sequelize
   .authenticate()

@@ -4,6 +4,8 @@
   "description": "\"ToDo list using Postgres and SQL\"",
   "main": "app.js",
   "dependencies": {
+    "express": "^4.15.4",
+    "mustache-express": "^1.2.5",
     "pg": "^7.1.0",
     "sequelize": "^4.4.2"
   },
