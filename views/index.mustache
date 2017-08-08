@@ -15,21 +15,9 @@
     {{/error}}
     <form action="index.html" method="post">
       <ul id="tasks">
-        <li>
-          <button type="button" name="test">Completed</button>
-          <p>Test tasks to be competed and moved</p>
-        </li>
-        <li>
-          <button type="button" name="test">Completed</button>
-          <p>Test tasks to be competed and moved</p>
-        </li>
-        <li>
-          <button type="button" name="test">Completed</button>
-          <p>Test tasks to be competed and moved</p>
-        </li>
         {{#todoList}}
           <li>
-            <button type="button" name="complete">Completed</button>
+            <button type="button">Completed</button>
             {{item}}
           </li>
         {{/todoList}}
