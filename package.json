@@ -1,0 +1,20 @@
+{
+  "name": "todo-list-sqlize",
+  "version": "1.0.0",
+  "description": "\"ToDo list using Postgres and SQL\"",
+  "main": "app.js",
+  "dependencies": {
+    "pg": "^7.1.0",
+    "sequelize": "^4.4.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "todo-list-sqlize"
+  },
+  "author": "Tristan",
+  "license": "ISC"
+}
