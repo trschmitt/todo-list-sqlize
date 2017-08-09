@@ -26,8 +26,6 @@ router.post("/:id/done", (req, res) => {
     });
   });
 });
-
-
 // have to use front end js click events for delete buttons that fetch instance and then post to that route
 
 router.post("/:id/delete", (req, res) => {
@@ -36,6 +34,14 @@ router.post("/:id/delete", (req, res) => {
       res.redirect("/");
     })
   })
+});
+
+router.post("/:id/redo", (req, res) => {
+  Models.todo.findById(parseInt(req.params.id)).then((todo) => {
+    todo.update({ complete: false }).then((todo) => {
+      res.redirect("/");
+    });
+  });
 });
 
 
