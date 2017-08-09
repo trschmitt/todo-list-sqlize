@@ -6,31 +6,28 @@
     <link rel="stylesheet" href="/styles.css">
   </head>
   <body>
-    <form id="search" action="/todoList" method="post">
+    <form action="/" method="post">
       <button type="submit">ToDo Item submit</button>
-      <input type="text" name="itemInput" value="">
+      <input type="text" name="itemInput" >
     </form>
     {{#error}}
       <h4>{{.}}</h4>
     {{/error}}
     <form action="index.html" method="post">
       <ul id="tasks">
-        {{#todo}}
+        {{#todos}}
           <li>
-            <button type="button">Completed</button>
+            <button type="button">Complete</button>
             {{item}}
           </li>
-        {{/todo}}
+        {{/todos}}
       </ul>
       <ul>
         {{#todo}}
-          <h2>{{description}}</h2>
           <p>
           {{#completed}}
+          <h2>{{description}}</h2>
             DONE
-          {{/completed}}
-          {{^completed}}
-            NOT COMPLETED
           {{/completed}}
           </p>
         {{/todo}}

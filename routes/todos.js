@@ -7,9 +7,21 @@ router.get("/", (req, res) => {
   models.todo.findAll().then(todos => {
     res.render("index", { todos: todos });
   });
-  models.todo.findById(req.params.id).then(todo => {
-    res.render("index", { todo: todo });
-  });
 });
+
+router.post("/", (req, res) => {
+  models.todo.findAll().then(todo => {
+    res.redirect("/");
+  });
+})
+
+router.post("/:id", (req, res) => {
+  res.redirect("/")
+})
+
+router.post("/:id/delete",(req, res) => {
+  res.redirect("/")
+})
+
 
 module.exports = router;
