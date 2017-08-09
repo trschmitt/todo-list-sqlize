@@ -4,7 +4,7 @@ const router = express.Router();
 const models = require("../models");
 
 router.get("/", (req, res) => {
-  models.todo.findAll().then(todos => {
+  models.todo.findAll({ completed:false }).then(todos => {
     res.render("index", { todos: todos });
   });
 });
@@ -15,11 +15,11 @@ router.post("/", (req, res) => {
   });
 })
 
-router.post("/:id", (req, res) => {
+router.post("/:id/done", (req, res) => {
   res.redirect("/")
 })
 
-router.post("/:id/delete",(req, res) => {
+router.post("/:id/delete", (req, res) => {
   res.redirect("/")
 })
 

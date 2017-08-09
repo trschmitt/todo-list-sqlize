@@ -13,25 +13,29 @@
     {{#error}}
       <h4>{{.}}</h4>
     {{/error}}
-    <form action="index.html" method="post">
+    <form action="/" method="post">
+      <h3>Incomplete</h3>
       <ul id="tasks">
         {{#todos}}
           <li>
             <button type="button">Complete</button>
-            {{item}}
+            {{description}}
           </li>
         {{/todos}}
       </ul>
-      <ul>
-        {{#todo}}
-          <p>
+    </form>
+    <form action="/" method="post">
+      <h3>Complete</h3>
+      <ul id="completed">
+        {{#todos}}
           {{#completed}}
-          <h2>{{description}}</h2>
-            DONE
+            <li>
+              <button type="button">Delete</button>
+              {{description}}
+            </li>
           {{/completed}}
-          </p>
-        {{/todo}}
+        {{/todos}}
       </ul>
-  </form>
+    </form>
   </body>
 </html>
