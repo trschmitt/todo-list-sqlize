@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const mustacheExpress = require('mustache-express');
 const url = require("url");
+const bodyParser = require('body-parser');
 
 app.set("port", process.env.PORT || 3010);
 
@@ -13,6 +14,7 @@ models.todo.findOne().then(function (todos) {
 })
 /**************************/
 
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static("public"));
 app.use("/", require("./routes/todos"));
 

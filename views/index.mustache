@@ -17,10 +17,13 @@
       <h3>Incomplete</h3>
       <ul id="tasks">
         {{#todos}}
-          <li>
-            <button type="button">Complete</button>
-            {{description}}
-          </li>
+          {{^complete}}
+            <li>
+              <a href="/"><button type="button">Complete</button></a>
+              <a href="/"><button type="button">Delete</button></a>
+              {{description}}
+            </li>
+          {{/complete}}
         {{/todos}}
       </ul>
     </form>
@@ -30,7 +33,8 @@
         {{#todos}}
           {{#complete}}
             <li>
-              <button type="button">Delete</button>
+              <a href="/"><button type="button">Do Over</button></a>
+              <a href="/"><button type="button">Delete</button></a>
               {{description}}
             </li>
           {{/complete}}
