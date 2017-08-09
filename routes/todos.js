@@ -32,9 +32,10 @@ router.post("/:id/done", (req, res) => {
 
 router.post("/:id/delete", (req, res) => {
   Models.todo.findById(parseInt(req.params.id)).then((todo) => {
-    todo.delete
+    todo.destroy({ force: true }).then((todo) => {
+      res.redirect("/");
+    })
   })
-  res.redirect("/")
 });
 
 
