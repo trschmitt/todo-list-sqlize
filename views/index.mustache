@@ -13,33 +13,29 @@
     {{#error}}
       <h4>{{.}}</h4>
     {{/error}}
-    <form action="./models/todo" method="post">
       <h3>Incomplete</h3>
       <ul id="tasks">
         {{#todos}}
           {{^complete}}
             <li>
-              <a href="/"><button type="button">Complete</button></a>
-              <a href="/"><button type="button">Delete</button></a>
+              <form action="/{{id}}/done" method="post"><button type="submit">Complete</button></form>
+              <form action="/{{id}}/delete" method="post"><button type="submit">Delete</button></form>
               {{description}}
             </li>
           {{/complete}}
         {{/todos}}
       </ul>
-    </form>
-    <form action="./models/todo" method="post">
       <h3>Complete</h3>
       <ul id="completed">
         {{#todos}}
           {{#complete}}
             <li>
-              <a href="/"><button type="button">Do Over</button></a>
-              <a href="/"><button type="button">Delete</button></a>
+              <form action="/{{id}}/redo" method="post"><button type="submit">Redo</button></form>
+              <form action="/{{id}}/delete" method="post"><button type="submit">Delete</button></form>
               {{description}}
             </li>
           {{/complete}}
         {{/todos}}
       </ul>
-    </form>
   </body>
 </html>

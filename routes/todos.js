@@ -20,14 +20,20 @@ router.post("/", (req, res) => {
 });
 
 router.post("/:id/done", (req, res) => {
-  Models.todo.findById(req.params.id)
-    .then(() => {
-      Models.todo.update({complete: true})
-  )}
-    res.redirect("/");
+  Models.todo.findById(parseInt(req.params.id)).then((todo) => {
+    todo.update({ complete: true }).then((todo) => {
+      res.redirect("/");
+    });
+  });
 });
 
+
+// have to use front end js click events for delete buttons that fetch instance and then post to that route
+
 router.post("/:id/delete", (req, res) => {
+  Models.todo.findById(parseInt(req.params.id)).then((todo) => {
+    todo.delete
+  })
   res.redirect("/")
 });
 
