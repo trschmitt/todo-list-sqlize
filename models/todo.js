@@ -3,7 +3,7 @@
 module.exports = function(sequelize, DataTypes) {
   let todo = sequelize.define('todo', {
     description: DataTypes.STRING,
-    completed: DataTypes.BOOLEAN
+    complete: DataTypes.BOOLEAN
   }, {
     classMethods: {
       associate: function(models) {

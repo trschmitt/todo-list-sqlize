@@ -13,7 +13,7 @@
     {{#error}}
       <h4>{{.}}</h4>
     {{/error}}
-    <form action="/" method="post">
+    <form action="./models/todo" method="post">
       <h3>Incomplete</h3>
       <ul id="tasks">
         {{#todos}}
@@ -24,16 +24,16 @@
         {{/todos}}
       </ul>
     </form>
-    <form action="/" method="post">
+    <form action="./models/todo" method="post">
       <h3>Complete</h3>
       <ul id="completed">
         {{#todos}}
-          {{#completed}}
+          {{#complete}}
             <li>
               <button type="button">Delete</button>
               {{description}}
             </li>
-          {{/completed}}
+          {{/complete}}
         {{/todos}}
       </ul>
     </form>

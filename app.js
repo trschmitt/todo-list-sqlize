@@ -8,8 +8,8 @@ app.set("port", process.env.PORT || 3010);
 
 /** sequelize model setup **/
 const models = require("./models");
-models.todo.findOne().then(function (todo) {
-  console.log(todo);
+models.todo.findOne().then(function (todos) {
+  console.log(todos);
 })
 /**************************/
 
