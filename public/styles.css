@@ -2,6 +2,14 @@
 body {
   text-align: center;
   padding: 20px;
+  background-color: #ECF0FA;
+}
+
+ul {
+  background-color: #7EA6D0;
+  margin: 10px;
+  border: 2px solid black;
+  padding: 20px;
 }
 
 li {
@@ -15,12 +23,6 @@ li button {
 }
 
 #search {
-  border-bottom: 2px solid black;
-  padding: 20px;
-  width: 80%;
-}
-
-#tasks {
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid #7EA6D0;
   padding: 20px;
 }
