@@ -2,13 +2,13 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>To Do List</title>
+    <title>Todo List</title>
     <link rel="stylesheet" href="/styles.css">
     <link rel="stylesheet" href="/normalize.css">
   </head>
   <body>
     <form id="search" action="/" method="post">
-      <button type="submit">ToDo Item Submit</button>
+      <button type="submit">Todo Item Submit</button>
       <input type="text" name="itemInput" >
     </form>
     {{#error}}
@@ -21,6 +21,7 @@
             <li>
               <form action="/{{id}}/done" method="post"><button type="submit">Complete</button></form>
               <form action="/{{id}}/delete" method="post"><button type="submit">Delete</button></form>
+              <form action="/edit/{{id}}" method="get"><button type="submit">Edit</button></form>
               {{description}}
             </li>
           {{/complete}}
@@ -38,5 +39,8 @@
           {{/complete}}
         {{/todos}}
       </ul>
+      <!-- <form class="delete-all" action="/delete/all" method="post">
+        <button type="submit">DELETE ALL</button>
+      </form> -->
   </body>
 </html>

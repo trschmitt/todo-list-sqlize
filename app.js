@@ -7,12 +7,6 @@ const bodyParser = require('body-parser');
 
 app.set("port", process.env.PORT || 3010);
 
-/** sequelize model setup **/
-const models = require("./models");
-models.todo.findOne().then(function (todos) {
-  console.log(todos);
-})
-/**************************/
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static("public"));

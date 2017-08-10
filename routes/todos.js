@@ -11,38 +11,63 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  Models.todo.create({
-    description: req.body.itemInput,
-    complete: false
-  }).then(() => {
-    res.redirect("/");
+  Models.todo
+    .create({
+      description: req.body.itemInput,
+      complete: false
+    })
+    .then(() => {
+      res.redirect("/");
+    });
+});
+
+router.get("/edit/:id", (req, res) => {
+  Models.todo.findById(parseInt(req.params.id)).then(todos => {
+    res.render("edit", { todos: todos });
   });
 });
 
-router.post("/:id/done", (req, res) => {
-  Models.todo.findById(parseInt(req.params.id)).then((todo) => {
-    todo.update({ complete: true }).then((todo) => {
+router.post("/edit/:id", (req, res) => {
+  Models.todo.findById(parseInt(req.params.id)).then(todo => {
+    todo.update({ description: req.body.editDescription }).then(todo => {
       res.redirect("/");
     });
   });
 });
-// have to use front end js click events for delete buttons that fetch instance and then post to that route
+
+/** Commenting out delete all functionality as i am not sure of hwo it works yet**/
+
+// router.post("/delete/all", (req, res) => {
+//   Models.todo.findAll().then(todo => {
+//     todo.destroy({force: true}).then(todo => {
+//       document.querySelector('delete-all').addEventListener('submit', (e) => {if(!confirm("Delete All?")) {e.preventDefault()}})
+//       res.redirect("/")
+//     })
+//   })
+// })
+
+router.post("/:id/done", (req, res) => {
+  Models.todo.findById(parseInt(req.params.id)).then(todo => {
+    todo.update({ complete: true }).then(todo => {
+      res.redirect("/");
+    });
+  });
+});
 
 router.post("/:id/delete", (req, res) => {
-  Models.todo.findById(parseInt(req.params.id)).then((todo) => {
-    todo.destroy({ force: true }).then((todo) => {
+  Models.todo.findById(parseInt(req.params.id)).then(todo => {
+    todo.destroy({ force: true }).then(todo => {
       res.redirect("/");
-    })
-  })
+    });
+  });
 });
 
 router.post("/:id/redo", (req, res) => {
-  Models.todo.findById(parseInt(req.params.id)).then((todo) => {
-    todo.update({ complete: false }).then((todo) => {
+  Models.todo.findById(parseInt(req.params.id)).then(todo => {
+    todo.update({ complete: false }).then(todo => {
       res.redirect("/");
     });
   });
 });
-
 
 module.exports = router;
